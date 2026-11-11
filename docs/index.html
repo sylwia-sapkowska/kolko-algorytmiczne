@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Materiały z koła algorytmiki i programowania dla dziewcząt.">
+<title>Koło algorytmiki i programowania</title>
+<style>
+  :root { --bg:#17131d; --fg:#ece8f3; --dim:#a59cb5; --accent:#f2b134; --blue:#b18cff; --green:#5fd38d; }
+  body { background:var(--bg); color:var(--fg); font-family:Inter,"Segoe UI",Arial,sans-serif; max-width:760px; margin:3em auto; padding:0 16px; line-height:1.5; }
+  h1 { color:var(--accent); font-weight:600; } h2 { margin-top:2em; } a { color:var(--blue); text-decoration:none; } a:hover { text-decoration:underline; }
+  li { margin:.6em 0; font-size:1.05em; } .dim { color:var(--dim); font-size:.9em; } code { color:var(--fg); }
+  .meeting { border-top:1px solid #3f3550; padding-top:.4em; margin-top:1.4em; }
+  .meeting h3 { margin:.4em 0 .5em; }
+  .meeting ul { padding-left:1.1em; margin:.3em 0; } .meeting li { margin:.25em 0; font-size:.95em; }
+  .track { margin-top:2.5em; padding:.2em 0 .6em 1.2em; border-left:4px solid var(--c); }
+  .track > h2 { color:var(--c); margin:.2em 0 .3em; }
+  .track .meeting h3 .dim:first-child { color:var(--c); }
+  .when { color:var(--dim); font-size:.85em; margin:-.3em 0 .4em; } .when .fill { color:var(--fg); font-family:"JetBrains Mono","Fira Code",ui-monospace,monospace; }
+  .boot { --c:var(--green); } .algo { --c:var(--blue); }
+  .task { color:var(--dim); font-size:.92em; margin:.4em 0 0; } .task b { color:var(--fg); font-weight:600; }
+</style>
+</head>
+<body>
+<h1>Koło algorytmiki i programowania MAP 2026/27</h1>
+<p class="dim">Piątki, 17:00</p>
+
+<h2>Materiały</h2>
+<ul>
+  <li><a href="slajdy/">Slajdy z zajęć</a> <span class="dim"></span></li>
+  <li><a href="https://szkopul.edu.pl/">Szkopuł</a> <span class="dim">stronka z zadaniami z</span></li>
+  <li><a href="https://codeforces.com/">Codeforces</a> <span class="dim"> -- zadania i różne zawody</span></li>
+  <li><a href="https://oi.edu.pl/">Olimpiada Informatyczna</a> <span class="dim"> -- informacje i materiały konkursowe</span></li>
+  <li><a href="https://en.cppreference.com/w/">cppreference</a> <span class="dim">-- dokumentacja C++</span></li>
+</ul>
+
+<h2>Orientacyjny plan spotkań</h2>
+<p class="dim">Od spotkania 2 koło ma dwie ścieżki, które idą równolegle: <a href="#bootcamp">Bootcamp C++</a> · <a href="#algorytmika">Algorytmika</a></p>
+<section class="meeting">
+  <h3>Spotkanie 1 <span class="dim">·</span> Zaczynamy!</h3>
+  <p class="when">Data: <span class="fill">[data]</span> · Prowadzi: <span class="fill">[inicjały]</span></p>
+  <p>Organizacja koła i łamigłówki bez komputera. Po zajęciach instalujemy kompilator C++ i VS Code. <a href="slajdy/01-start/">Slajdy</a></p>
+</section>
+
+<section class="track boot" id="bootcamp">
+  <h2>Bootcamp C++</h2>
+  <p class="dim">Spokojniejsze tempo: uczymy się języka od zera, krok po kroku, z dużą liczbą krótkich ćwiczeń. Dla osób, które zaczynają lub chcą poczuć się pewniej w programowaniu.</p>
+  <div class="meeting">
+    <h3>Spotkanie 2 <span class="dim">·</span> Pierwszy program</h3>
+    <p class="when">Data: <span class="fill">[data]</span> · Prowadzi: <span class="fill">[inicjały]</span></p>
+    <ul>
+      <li>Budowa programu, kompilacja i uruchamianie</li>
+      <li>Wejście i wyjście (<code>cin</code>, <code>cout</code>)</li>
+      <li>Zmienne i typy (<code>int</code>, <code>long long</code>, <code>double</code>, <code>bool</code>, <code>char</code>)</li>
+      <li>Działania arytmetyczne, dzielenie całkowite i reszta (<code>%</code>)</li>
+    </ul>
+    <p class="task"><b>Praktyka:</b> 4–5 krótkich zadań z automatycznym sprawdzaniem.</p>
+  </div>
+  <div class="meeting">
+    <h3>Spotkanie 3 <span class="dim">·</span> Warunki i pętle</h3>
+    <p class="when">Data: <span class="fill">[data]</span> · Prowadzi: <span class="fill">[inicjały]</span></p>
+    <ul>
+      <li>Instrukcje warunkowe <code>if</code> / <code>else</code></li>
+      <li>Porównania i operatory logiczne</li>
+      <li>Pętle <code>for</code> i <code>while</code></li>
+      <li>Typowe pułapki: nieskończona pętla, za mały typ</li>
+    </ul>
+    <p class="task"><b>Zadania:</b> suma, maksimum, liczby pierwsze.</p>
+  </div>
+  <div class="meeting">
+    <h3>Spotkanie 4 <span class="dim">·</span> Tablice i <code>vector</code></h3>
+    <p class="when">Data: <span class="fill">[data]</span> · Prowadzi: <span class="fill">[inicjały]</span></p>
+    <ul>
+      <li>Tablice i <code>vector</code></li>
+      <li><code>push_back</code>, <code>size</code>, indeksy od 0</li>
+      <li>Iterowanie po tablicy</li>
+      <li>Minimum i maksimum w tablicy</li>
+    </ul>
+    <p class="task"><b>Zadania:</b> suma i maksimum ciągu, odwracanie tablicy.</p>
+  </div>
+  <div class="meeting">
+    <h3>Spotkanie 5 <span class="dim">·</span> Funkcje i napisy</h3>
+    <p class="when">Data: <span class="fill">[data]</span> · Prowadzi: <span class="fill">[inicjały]</span></p>
+    <ul>
+      <li>Funkcje: parametry i zwracanie wyniku</li>
+      <li>Zasięg zmiennych</li>
+      <li>Napisy: <code>string</code> i <code>char</code></li>
+      <li>Przechodzenie po napisie znak po znaku</li>
+    </ul>
+    <p class="task"><b>Zadania:</b> NWD jako funkcja, palindromy.</p>
+  </div>
+  <div class="meeting">
+    <h3>Spotkanie 6 <span class="dim">·</span> Sortowanie i pary</h3>
+    <p class="when">Data: <span class="fill">[data]</span> · Prowadzi: <span class="fill">[inicjały]</span></p>
+    <ul>
+      <li>Sortowanie przez <code>sort()</code>, także malejąco</li>
+      <li><code>pair</code> i sortowanie par</li>
+      <li>Przekazywanie przez referencję (<code>&amp;</code>)</li>
+    </ul>
+    <p class="task"><b>Zadania:</b> mediana, drugi największy element, liczba różnych elementów.</p>
+  </div>
+  <div class="meeting">
+    <h3>Spotkanie 7 <span class="dim">·</span> Rekurencja</h3>
+    <p class="when">Data: <span class="fill">[data]</span> · Prowadzi: <span class="fill">[inicjały]</span></p>
+    <ul>
+      <li>Funkcja, która wywołuje samą siebie</li>
+      <li>Warunek stopu</li>
+      <li>Rozkład problemu na mniejsze problemy</li>
+    </ul>
+    <p class="task"><b>Zadania:</b> silnia, Fibonacci, generowanie ciągów.</p>
+  </div>
+  <div class="meeting">
+    <h3>Spotkanie 8 <span class="dim">·</span> STL w praktyce</h3>
+    <p class="when">Data: <span class="fill">[data]</span> · Prowadzi: <span class="fill">[inicjały]</span></p>
+    <ul>
+      <li><code>stack</code>, <code>queue</code>, <code>set</code>, <code>map</code></li>
+      <li>Wybór odpowiedniej struktury do zadania</li>
+      <li>Debugowanie i testowanie na małych przykładach</li>
+    </ul>
+  </div>
+</section>
+
+<section class="track algo" id="algorytmika">
+  <h2>Algorytmika</h2>
+  <p class="dim">Techniki olimpijskie, podstawowe algorytmy i analiza złożoności.</p>
+  <div class="meeting">
+    <h3>Spotkanie 2 <span class="dim">·</span> Analiza złożoności</h3>
+    <p class="when">Data: <span class="fill">[data]</span> · Prowadzi: <span class="fill">[inicjały]</span></p>
+    <ul>
+      <li>Notacja <i>O</i>(·), Θ(·), intuicja złożoności</li>
+      <li>Analiza pętli i pętli zagnieżdżonych</li>
+      <li>Złożoność liniowa, logarytmiczna, kwadratowa</li>
+      <li>Ograniczenia wejścia a dobór algorytmu</li>
+    </ul>
+    <p class="task"><b>Praktyka:</b> zadania, w których trzeba wybrać algorytm na podstawie ograniczeń.</p>
+  </div>
+  <div class="meeting">
+    <h3>Spotkanie 3 <span class="dim">·</span> Sortowanie</h3>
+    <p class="when">Data: <span class="fill">[data]</span> · Prowadzi: <span class="fill">[inicjały]</span></p>
+    <ul>
+      <li>Sortowanie jako technika upraszczania problemów</li>
+    </ul>
+    <p class="task"><b>Zadania:</b> maksymalna liczba par o określonej sumie.</p>
+  </div>
+  <div class="meeting">
+    <h3>Spotkanie 4 <span class="dim">·</span> Prefix sums i techniki pracy na przedziałach</h3>
+    <p class="when">Data: <span class="fill">[data]</span> · Prowadzi: <span class="fill">[inicjały]</span></p>
+    <ul>
+      <li>Prefix sums w 1D i 2D</li>
+      <li>Difference arrays</li>
+      <li>Sliding window</li>
+      <li>Two pointers – zastosowania</li>
+      <li>Zliczanie częstości</li>
+      <li>Koordynatowa kompresja jako zapowiedź trudniejszych technik</li>
+    </ul>
+    <p class="task"><b>Zadania:</b> duża liczba zapytań, przedziały, punkty i prostokąty.</p>
+  </div>
+  <div class="meeting">
+    <h3>Spotkanie 5 <span class="dim">·</span> Wyszukiwanie binarne</h3>
+    <p class="when">Data: <span class="fill">[data]</span> · Prowadzi: <span class="fill">[inicjały]</span></p>
+    <ul>
+      <li>Binary search</li>
+      <li>Wyszukiwanie binarne po wyniku (binary search on answer)</li>
+    </ul>
+    <p class="task"><b>Zadania:</b> minimalna możliwa maksymalna wartość, przydział zasobów.</p>
+  </div>
+  <div class="meeting">
+    <h3>Spotkanie 6 <span class="dim">·</span> Zachłanność i kombinatoryka</h3>
+    <p class="when">Data: <span class="fill">[data]</span> · Prowadzi: <span class="fill">[inicjały]</span></p>
+    <ul>
+      <li>Algorytmy zachłanne</li>
+      <li>Jak rozpoznawać własność zachłanności?</li>
+      <li>Dowody przez wymianę i argumenty optymalności</li>
+      <li>Sortowanie według odpowiedniego kryterium</li>
+    </ul>
+    <p class="task"><b>Zadania:</b> przedziały, harmonogramowanie, wybór aktywności.</p>
+  </div>
+  <div class="meeting">
+    <h3>Spotkanie 7 <span class="dim">·</span> Grafy</h3>
+    <p class="when">Data: <span class="fill">[data]</span> · Prowadzi: <span class="fill">[inicjały]</span></p>
+    <ul>
+      <li>BFS i DFS – własności i zastosowania</li>
+      <li>Najkrótsza ścieżka w grafie nieważonym</li>
+      <li>Spójność i cykle</li>
+      <li>Sortowanie topologiczne</li>
+      <li>Dijkstra – wprowadzenie, jeśli poziom grupy na to pozwala</li>
+    </ul>
+    <p class="task"><b>Zadania:</b> labirynt, sieć komunikacyjna, najkrótsze ścieżki.</p>
+  </div>
+  <div class="meeting">
+    <h3>Spotkanie 8 <span class="dim">·</span> Programowanie dynamiczne</h3>
+    <p class="when">Data: <span class="fill">[data]</span> · Prowadzi: <span class="fill">[inicjały]</span></p>
+    <ul>
+      <li>Stan DP i przejścia</li>
+      <li>Warunki początkowe</li>
+      <li>Kolejność obliczania stanów</li>
+      <li>DP 1D i 2D</li>
+      <li>Optymalizacja pamięci</li>
+      <li>Dowodzenie poprawności przejść</li>
+    </ul>
+    <p class="task"><b>Zadania:</b> plecak, LIS, problem wydawania monet, DP na siatce.</p>
+  </div>
+</section>
+</body>
+</html>

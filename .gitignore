@@ -1,0 +1,12 @@
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*.out
+*.exe
+*.o
+.vscode/
+.idea/
+
+.claude
+design-reference
