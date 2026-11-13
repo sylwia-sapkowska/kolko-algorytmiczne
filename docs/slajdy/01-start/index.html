@@ -43,6 +43,7 @@
       <h3>Część 2: łamigłówki</h3>
       <ol style="font-size:0.85em">
         <li>zgadnij liczbę</li>
+        <li>dwa jajka i wieżowiec</li>
         <li>fałszywa moneta</li>
         <li>szachownica i domino</li>
         <li>gra w zapałki</li>
@@ -257,6 +258,15 @@
     <tr><td><a href="https://en.cppreference.com/w/">cppreference</a></td><td>dokumentacja języka C++ i biblioteki standardowej</td></tr>
     <tr><td><a href="https://github.com/sylwia-sapkowska/kolko-algorytmiczne">repozytorium z materiałami</a></td><td>prezentacje, listy zadań i nasze przykładowe implementacje</td></tr>
   </table>
+  <div class="box" style="margin-top:0.6em">
+    <h3>Do zrobienia przed następnym spotkaniem</h3>
+    <ol class="small" style="font-size:0.75em">
+      <li>Załóż konto na <a href="https://szkopul.edu.pl/">Szkopule</a>.</li>
+      <li>Zarejestruj się w projekcie <b>MAP</b>.</li>
+      <li>Dołącz do naszego konkursu na Szkopule: <a href="https://szkopul.edu.pl/c/kolko-w-algorytmice-i-programowa/join/-ArM6UvzR2w8b7InzbouLyj9/">szkopul.edu.pl/c/kolko-w-algorytmice-i-programowa/join/…</a></li>
+    </ol>
+  </div>
+  
 </section>
 
 <section>
@@ -311,6 +321,562 @@
     <li class="fragment">Przy co najwyżej 6 pytaniach drzewo ma 6 poziomów, a na nich co najwyżej $$1 + 2 + 4 + 8 + 16 + 32 = 63 < 100 \text{ węzłów.}$$</li>
   </ol>
   <div class="takeaway fragment">Któraś liczba nie zostanie trafiona w 6 pytaniach, niezależnie od strategii.</div>
+</section>
+
+<section>
+  <h2>Dwa jajka i 100 pięter</h2>
+  <div class="cols" style="grid-template-columns: auto 1fr">
+    <svg viewBox="0 0 330 390" style="width:330px" font-family="Inter, Arial, sans-serif" role="img" aria-label="Wieżowiec ze 100 piętrami, co dziesiąte piętro podpisane; obok dwa jajka i przerywana strzałka pokazująca zrzut z okna.">
+      <defs><marker id="aheg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="context-stroke"/></marker></defs>
+      <rect x="90" y="50" width="100" height="300" fill="#221c2b" stroke="#a59cb5" stroke-width="2"/>
+      <line x1="90" y1="320" x2="190" y2="320" stroke="#655b78" stroke-width="1.5"/>
+      <line x1="90" y1="290" x2="190" y2="290" stroke="#655b78" stroke-width="1.5"/>
+      <line x1="90" y1="260" x2="190" y2="260" stroke="#655b78" stroke-width="1.5"/>
+      <line x1="90" y1="230" x2="190" y2="230" stroke="#655b78" stroke-width="1.5"/>
+      <line x1="90" y1="200" x2="190" y2="200" stroke="#655b78" stroke-width="1.5"/>
+      <line x1="90" y1="170" x2="190" y2="170" stroke="#655b78" stroke-width="1.5"/>
+      <line x1="90" y1="140" x2="190" y2="140" stroke="#655b78" stroke-width="1.5"/>
+      <line x1="90" y1="110" x2="190" y2="110" stroke="#655b78" stroke-width="1.5"/>
+      <line x1="90" y1="80" x2="190" y2="80" stroke="#655b78" stroke-width="1.5"/>
+      <text x="80" y="325" text-anchor="end" fill="#a59cb5" font-size="14">10</text>
+      <text x="80" y="295" text-anchor="end" fill="#a59cb5" font-size="14">20</text>
+      <text x="80" y="265" text-anchor="end" fill="#a59cb5" font-size="14">30</text>
+      <text x="80" y="235" text-anchor="end" fill="#a59cb5" font-size="14">40</text>
+      <text x="80" y="205" text-anchor="end" fill="#a59cb5" font-size="14">50</text>
+      <text x="80" y="175" text-anchor="end" fill="#a59cb5" font-size="14">60</text>
+      <text x="80" y="145" text-anchor="end" fill="#a59cb5" font-size="14">70</text>
+      <text x="80" y="115" text-anchor="end" fill="#a59cb5" font-size="14">80</text>
+      <text x="80" y="85" text-anchor="end" fill="#a59cb5" font-size="14">90</text>
+      <text x="80" y="55" text-anchor="end" fill="#a59cb5" font-size="14">100</text>
+      <line x1="40" y1="350" x2="300" y2="350" stroke="#a59cb5" stroke-width="2.5"/>
+      <ellipse cx="230" cy="42" rx="12" ry="16" fill="#e9dcc0"/>
+      <ellipse cx="262" cy="42" rx="12" ry="16" fill="#e9dcc0"/>
+      <line x1="210" y1="170" x2="210" y2="338" stroke="#f2b134" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#aheg)"/>
+      <line x1="190" y1="170" x2="210" y2="170" stroke="#f2b134" stroke-width="2"/>
+      <text x="218" y="175" text-anchor="start" fill="#f2b134" font-size="15">rzut z piętra 60</text>
+      <text x="165" y="380" text-anchor="middle" fill="#a59cb5" font-size="15">100 pięter, 2 jajka</text>
+    </svg>
+    <div style="font-size:0.8em">
+      <p>Wieżowiec ma 100 pięter. Gdzieś jest <b>piętro graniczne</b>: najwyższe, z którego zrzucone jajko się nie tłucze. Z każdego wyższego jajko się tłucze, z każdego niższego nie. Może to być 0 (tłucze się już z 1. piętra) albo 100.</p>
+      <p class="small">Jajko, które przetrwało zrzut, jest całe i można je zrzucać dalej; stłuczonego nie da się już użyć.</p>
+      <div class="question">Mamy <b>2</b> jajka. Ile rzutów wystarczy, żeby <b>zawsze</b>, nawet przy największym pechu, wyznaczyć piętro graniczne?</div>
+      <ul style="font-size:0.9em">
+        <li class="fragment">z jednym jajkiem: tylko po kolei od 1. piętra, czyli nawet <b>100</b> rzutów</li>
+        <li class="fragment">gdyby jajek było dowolnie dużo: <b>7</b>, jak w zgadywaniu liczby</li>
+        <li class="fragment">dwa jajka i rzut z 50. piętra? Jeśli się stłucze, drugim trzeba sprawdzić 1, 2, …, 49: razem do <b>50</b> rzutów</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Pierwszy pomysł: skoki co 10 pięter</h2>
+  <svg viewBox="0 0 1180 190" style="width:100%; max-width:1180px" font-family="Inter, Arial, sans-serif" role="img" aria-label="Piętra od 1 do 100 jako pasek. Pierwsze jajko rzucamy co 10 pięter: z 10, 20, …, 100; między skokami zostaje po 9 pięter. Najgorszy przypadek: piętro graniczne 99: pierwsze jajko tłucze się na 100. piętrze w 10. rzucie, drugie sprawdza piętra 91–99, razem 19 rzutów.">
+    <rect x="30" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="41" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="52" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="63" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="74" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="85" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="96" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="107" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="118" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="129" y="60" width="10" height="26" fill="#f2b134"/>
+    <rect x="140" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="151" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="162" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="173" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="184" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="195" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="206" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="217" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="228" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="239" y="60" width="10" height="26" fill="#f2b134"/>
+    <rect x="250" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="261" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="272" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="283" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="294" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="305" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="316" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="327" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="338" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="349" y="60" width="10" height="26" fill="#f2b134"/>
+    <rect x="360" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="371" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="382" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="393" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="404" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="415" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="426" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="437" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="448" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="459" y="60" width="10" height="26" fill="#f2b134"/>
+    <rect x="470" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="481" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="492" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="503" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="514" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="525" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="536" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="547" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="558" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="569" y="60" width="10" height="26" fill="#f2b134"/>
+    <rect x="580" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="591" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="602" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="613" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="624" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="635" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="646" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="657" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="668" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="679" y="60" width="10" height="26" fill="#f2b134"/>
+    <rect x="690" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="701" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="712" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="723" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="734" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="745" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="756" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="767" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="778" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="789" y="60" width="10" height="26" fill="#f2b134"/>
+    <rect x="800" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="811" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="822" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="833" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="844" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="855" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="866" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="877" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="888" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="899" y="60" width="10" height="26" fill="#f2b134"/>
+    <rect x="910" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="921" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="932" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="943" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="954" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="965" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="976" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="987" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="998" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="1009" y="60" width="10" height="26" fill="#f2b134"/>
+    <rect x="1020" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="1031" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="1042" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="1053" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="1064" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="1075" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="1086" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="1097" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="1108" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="1119" y="60" width="10" height="26" fill="#f2b134"/>
+    <rect x="29" y="59" width="1101" height="28" fill="none" stroke="#655b78" stroke-width="1.5"/>
+    <text x="134" y="48" text-anchor="middle" fill="#f2b134" font-size="14" font-weight="600">10</text>
+    <text x="244" y="48" text-anchor="middle" fill="#f2b134" font-size="14" font-weight="600">20</text>
+    <text x="354" y="48" text-anchor="middle" fill="#f2b134" font-size="14" font-weight="600">30</text>
+    <text x="464" y="48" text-anchor="middle" fill="#f2b134" font-size="14" font-weight="600">40</text>
+    <text x="574" y="48" text-anchor="middle" fill="#f2b134" font-size="14" font-weight="600">50</text>
+    <text x="684" y="48" text-anchor="middle" fill="#f2b134" font-size="14" font-weight="600">60</text>
+    <text x="794" y="48" text-anchor="middle" fill="#f2b134" font-size="14" font-weight="600">70</text>
+    <text x="904" y="48" text-anchor="middle" fill="#f2b134" font-size="14" font-weight="600">80</text>
+    <text x="1014" y="48" text-anchor="middle" fill="#f2b134" font-size="14" font-weight="600">90</text>
+    <text x="1124" y="48" text-anchor="middle" fill="#f2b134" font-size="14" font-weight="600">100</text>
+    <text x="79.5" y="106" text-anchor="middle" fill="#a59cb5" font-size="14">9</text>
+    <text x="189.5" y="106" text-anchor="middle" fill="#a59cb5" font-size="14">9</text>
+    <text x="299.5" y="106" text-anchor="middle" fill="#a59cb5" font-size="14">9</text>
+    <text x="409.5" y="106" text-anchor="middle" fill="#a59cb5" font-size="14">9</text>
+    <text x="519.5" y="106" text-anchor="middle" fill="#a59cb5" font-size="14">9</text>
+    <text x="629.5" y="106" text-anchor="middle" fill="#a59cb5" font-size="14">9</text>
+    <text x="739.5" y="106" text-anchor="middle" fill="#a59cb5" font-size="14">9</text>
+    <text x="849.5" y="106" text-anchor="middle" fill="#a59cb5" font-size="14">9</text>
+    <text x="959.5" y="106" text-anchor="middle" fill="#a59cb5" font-size="14">9</text>
+    <text x="1069.5" y="106" text-anchor="middle" fill="#a59cb5" font-size="14">9</text>
+    <g class="fragment">
+    <rect x="30" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="41" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="52" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="63" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="74" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="85" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="96" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="107" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="118" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="129" y="140" width="10" height="26" fill="#f2b134"/>
+    <rect x="140" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="151" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="162" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="173" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="184" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="195" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="206" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="217" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="228" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="239" y="140" width="10" height="26" fill="#f2b134"/>
+    <rect x="250" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="261" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="272" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="283" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="294" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="305" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="316" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="327" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="338" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="349" y="140" width="10" height="26" fill="#f2b134"/>
+    <rect x="360" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="371" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="382" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="393" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="404" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="415" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="426" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="437" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="448" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="459" y="140" width="10" height="26" fill="#f2b134"/>
+    <rect x="470" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="481" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="492" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="503" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="514" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="525" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="536" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="547" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="558" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="569" y="140" width="10" height="26" fill="#f2b134"/>
+    <rect x="580" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="591" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="602" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="613" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="624" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="635" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="646" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="657" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="668" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="679" y="140" width="10" height="26" fill="#f2b134"/>
+    <rect x="690" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="701" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="712" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="723" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="734" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="745" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="756" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="767" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="778" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="789" y="140" width="10" height="26" fill="#f2b134"/>
+    <rect x="800" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="811" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="822" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="833" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="844" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="855" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="866" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="877" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="888" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="899" y="140" width="10" height="26" fill="#f2b134"/>
+    <rect x="910" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="921" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="932" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="943" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="954" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="965" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="976" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="987" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="998" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="1009" y="140" width="10" height="26" fill="#f2b134"/>
+    <rect x="1020" y="140" width="10" height="26" fill="#5fd38d"/>
+    <rect x="1031" y="140" width="10" height="26" fill="#5fd38d"/>
+    <rect x="1042" y="140" width="10" height="26" fill="#5fd38d"/>
+    <rect x="1053" y="140" width="10" height="26" fill="#5fd38d"/>
+    <rect x="1064" y="140" width="10" height="26" fill="#5fd38d"/>
+    <rect x="1075" y="140" width="10" height="26" fill="#5fd38d"/>
+    <rect x="1086" y="140" width="10" height="26" fill="#5fd38d"/>
+    <rect x="1097" y="140" width="10" height="26" fill="#5fd38d"/>
+    <rect x="1108" y="140" width="10" height="26" fill="#5fd38d"/>
+    <rect x="1119" y="140" width="10" height="26" fill="#ff6b6b"/>
+    <rect x="29" y="139" width="1101" height="28" fill="none" stroke="#655b78" stroke-width="1.5"/>
+    <text x="1124" y="132" text-anchor="middle" fill="#ff6b6b" font-size="14" font-weight="600">100</text>
+    <text x="1069.0" y="132" text-anchor="middle" fill="#5fd38d" font-size="14" font-weight="600">91–99</text>
+    <text x="1130" y="186" text-anchor="end" fill="#a59cb5" font-size="15">najgorszy przypadek: piętro graniczne 99</text>
+    </g>
+  </svg>
+  <p class="small" style="margin-top:0">żółte: rzuty pierwszym jajkiem · liczby pod paskiem: ile pięter zostaje między skokami · czerwone: tu pierwsze jajko się tłucze · zielone: rzuty drugim jajkiem</p>
+  <div class="cols" style="font-size:0.75em">
+    <ul>
+      <li>pierwsze jajko rzucamy z pięter 10, 20, 30, …, 100, aż się stłucze</li>
+      <li>drugie sprawdza <b>po kolei</b> 9 pięter nad ostatnim bezpiecznym</li>
+      <li>najgorzej: najwyżej $10 + 9 = 19$ rzutów</li>
+    </ul>
+    <div>
+      <p style="margin-top:0">Ogólnie przy $n$ piętrach i skokach co $k$: najwyżej $\frac{n}{k} + (k - 1)$ rzutów. Najlepiej wybrać $k \approx \sqrt{n}$: wychodzi mniej niż $2\sqrt{n}$, czyli dla 100 pięter mniej niż <b>20</b>.</p>
+      <div class="question">Czy da się lepiej?</div>
+      <p class="fragment small">Tak. Gdy pierwsze jajko stłucze się późno, zużyło już dużo rzutów, a drugiemu i tak zostaje 9 pięter. Pierwszy skok może być dłuższy, a kolejne coraz krótsze.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Skoki coraz krótsze: 14 rzutów</h2>
+  <svg viewBox="0 0 1180 190" style="width:100%; max-width:1180px" font-family="Inter, Arial, sans-serif" role="img" aria-label="Piętra od 1 do 100 jako pasek. Pierwsze jajko rzucamy kolejno z pięter 14, 27, 39, 50, 60, 69, 77, 84, 90, 95, 99, 100; przerwy między nimi mają 13, 12, 11, … pięter. Przykład: piętro graniczne 68: pierwsze jajko tłucze się na 69. piętrze w 6. rzucie, drugie sprawdza piętra 61–68, razem 14 rzutów.">
+    <rect x="30" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="41" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="52" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="63" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="74" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="85" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="96" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="107" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="118" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="129" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="140" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="151" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="162" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="173" y="60" width="10" height="26" fill="#f2b134"/>
+    <rect x="184" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="195" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="206" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="217" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="228" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="239" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="250" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="261" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="272" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="283" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="294" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="305" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="316" y="60" width="10" height="26" fill="#f2b134"/>
+    <rect x="327" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="338" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="349" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="360" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="371" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="382" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="393" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="404" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="415" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="426" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="437" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="448" y="60" width="10" height="26" fill="#f2b134"/>
+    <rect x="459" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="470" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="481" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="492" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="503" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="514" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="525" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="536" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="547" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="558" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="569" y="60" width="10" height="26" fill="#f2b134"/>
+    <rect x="580" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="591" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="602" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="613" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="624" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="635" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="646" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="657" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="668" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="679" y="60" width="10" height="26" fill="#f2b134"/>
+    <rect x="690" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="701" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="712" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="723" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="734" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="745" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="756" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="767" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="778" y="60" width="10" height="26" fill="#f2b134"/>
+    <rect x="789" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="800" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="811" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="822" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="833" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="844" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="855" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="866" y="60" width="10" height="26" fill="#f2b134"/>
+    <rect x="877" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="888" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="899" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="910" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="921" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="932" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="943" y="60" width="10" height="26" fill="#f2b134"/>
+    <rect x="954" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="965" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="976" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="987" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="998" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="1009" y="60" width="10" height="26" fill="#f2b134"/>
+    <rect x="1020" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="1031" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="1042" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="1053" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="1064" y="60" width="10" height="26" fill="#f2b134"/>
+    <rect x="1075" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="1086" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="1097" y="60" width="10" height="26" fill="#221c2b"/>
+    <rect x="1108" y="60" width="10" height="26" fill="#f2b134"/>
+    <rect x="1119" y="60" width="10" height="26" fill="#f2b134"/>
+    <rect x="29" y="59" width="1101" height="28" fill="none" stroke="#655b78" stroke-width="1.5"/>
+    <text x="178" y="48" text-anchor="middle" fill="#f2b134" font-size="14" font-weight="600">14</text>
+    <text x="321" y="48" text-anchor="middle" fill="#f2b134" font-size="14" font-weight="600">27</text>
+    <text x="453" y="48" text-anchor="middle" fill="#f2b134" font-size="14" font-weight="600">39</text>
+    <text x="574" y="48" text-anchor="middle" fill="#f2b134" font-size="14" font-weight="600">50</text>
+    <text x="684" y="48" text-anchor="middle" fill="#f2b134" font-size="14" font-weight="600">60</text>
+    <text x="783" y="48" text-anchor="middle" fill="#f2b134" font-size="14" font-weight="600">69</text>
+    <text x="871" y="48" text-anchor="middle" fill="#f2b134" font-size="14" font-weight="600">77</text>
+    <text x="948" y="48" text-anchor="middle" fill="#f2b134" font-size="14" font-weight="600">84</text>
+    <text x="1014" y="48" text-anchor="middle" fill="#f2b134" font-size="14" font-weight="600">90</text>
+    <text x="1069" y="48" text-anchor="middle" fill="#f2b134" font-size="14" font-weight="600">95</text>
+    <text x="1113" y="48" text-anchor="middle" fill="#f2b134" font-size="14" font-weight="600">99</text>
+    <text x="1124" y="30" text-anchor="middle" fill="#f2b134" font-size="14" font-weight="600">100</text>
+    <text x="101.5" y="106" text-anchor="middle" fill="#a59cb5" font-size="14">13</text>
+    <text x="250.0" y="106" text-anchor="middle" fill="#a59cb5" font-size="14">12</text>
+    <text x="387.5" y="106" text-anchor="middle" fill="#a59cb5" font-size="14">11</text>
+    <text x="514.0" y="106" text-anchor="middle" fill="#a59cb5" font-size="14">10</text>
+    <text x="629.5" y="106" text-anchor="middle" fill="#a59cb5" font-size="14">9</text>
+    <text x="734.0" y="106" text-anchor="middle" fill="#a59cb5" font-size="14">8</text>
+    <text x="827.5" y="106" text-anchor="middle" fill="#a59cb5" font-size="14">7</text>
+    <text x="910.0" y="106" text-anchor="middle" fill="#a59cb5" font-size="14">6</text>
+    <text x="981.5" y="106" text-anchor="middle" fill="#a59cb5" font-size="14">5</text>
+    <text x="1042.0" y="106" text-anchor="middle" fill="#a59cb5" font-size="14">4</text>
+    <text x="1091.5" y="106" text-anchor="middle" fill="#a59cb5" font-size="14">3</text>
+    <text x="30" y="106" text-anchor="start" fill="#a59cb5" font-size="14"></text>
+    <g class="fragment">
+    <rect x="30" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="41" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="52" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="63" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="74" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="85" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="96" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="107" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="118" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="129" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="140" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="151" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="162" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="173" y="140" width="10" height="26" fill="#f2b134"/>
+    <rect x="184" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="195" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="206" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="217" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="228" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="239" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="250" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="261" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="272" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="283" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="294" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="305" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="316" y="140" width="10" height="26" fill="#f2b134"/>
+    <rect x="327" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="338" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="349" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="360" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="371" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="382" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="393" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="404" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="415" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="426" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="437" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="448" y="140" width="10" height="26" fill="#f2b134"/>
+    <rect x="459" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="470" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="481" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="492" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="503" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="514" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="525" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="536" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="547" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="558" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="569" y="140" width="10" height="26" fill="#f2b134"/>
+    <rect x="580" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="591" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="602" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="613" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="624" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="635" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="646" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="657" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="668" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="679" y="140" width="10" height="26" fill="#f2b134"/>
+    <rect x="690" y="140" width="10" height="26" fill="#5fd38d"/>
+    <rect x="701" y="140" width="10" height="26" fill="#5fd38d"/>
+    <rect x="712" y="140" width="10" height="26" fill="#5fd38d"/>
+    <rect x="723" y="140" width="10" height="26" fill="#5fd38d"/>
+    <rect x="734" y="140" width="10" height="26" fill="#5fd38d"/>
+    <rect x="745" y="140" width="10" height="26" fill="#5fd38d"/>
+    <rect x="756" y="140" width="10" height="26" fill="#5fd38d"/>
+    <rect x="767" y="140" width="10" height="26" fill="#5fd38d"/>
+    <rect x="778" y="140" width="10" height="26" fill="#ff6b6b"/>
+    <rect x="789" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="800" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="811" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="822" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="833" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="844" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="855" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="866" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="877" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="888" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="899" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="910" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="921" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="932" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="943" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="954" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="965" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="976" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="987" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="998" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="1009" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="1020" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="1031" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="1042" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="1053" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="1064" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="1075" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="1086" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="1097" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="1108" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="1119" y="140" width="10" height="26" fill="#221c2b"/>
+    <rect x="29" y="139" width="1101" height="28" fill="none" stroke="#655b78" stroke-width="1.5"/>
+    <text x="783" y="132" text-anchor="middle" fill="#ff6b6b" font-size="14" font-weight="600">69</text>
+    <text x="733.5" y="132" text-anchor="middle" fill="#5fd38d" font-size="14" font-weight="600">61–68</text>
+    <text x="819" y="158" text-anchor="start" fill="#a59cb5" font-size="15">przykład: piętro graniczne 68</text>
+    </g>
+  </svg>
+  <p class="small" style="margin-top:0">żółte: rzuty pierwszym jajkiem · liczby pod paskiem: ile pięter zostaje między skokami · czerwone: tu pierwsze jajko się tłucze · zielone: rzuty drugim jajkiem</p>
+  <div class="cols" style="font-size:0.75em">
+    <ul>
+      <li>pierwsze jajko rzucamy z pięter 14, 27, 39, 50, …: każdy skok jest <b>o 1 krótszy</b> od poprzedniego</li>
+      <li>gdy się stłucze, drugie sprawdza <b>po kolei</b> piętra od ostatniego bezpiecznego w górę</li>
+    </ul>
+    <div>
+      <p style="margin-top:0">Jeśli pierwsze jajko stłucze się w $k$-tym rzucie, pod nim zostaje $14-k$ niesprawdzonych pięter. Razem najwyżej $k + (14-k) = 14$ rzutów.</p>
+      <p class="small">Skoki sięgają $14 + 13 + \dots + 1 = 105 \ge 100$ pięter.</p>
+    </div>
+  </div>
+  <div class="takeaway">Każdy rzut pierwszym jajkiem zużywa jeden rzut, więc drugiemu zostawiamy <b>o jedno piętro mniej</b>: najgorszy przypadek jest wszędzie taki sam.</div>
+</section>
+
+<section class="optional">
+  <h2>Dlaczego 13 rzutów nie wystarczy? <span class="optional-badge">dla chętnych</span></h2>
+  <ol style="font-size:0.8em">
+    <li><b>Jedno jajko i $d$ rzutów sprawdzi najwyżej $d$ pięter.</b> Nie wolno przeskoczyć piętra: gdy jajko stłucze się wyżej, nie będziemy wiedzieć, czy przeskoczone piętro było bezpieczne.</li>
+    <li class="fragment"><b>Dwa jajka.</b> Niech $f(d)$ to najwięcej pięter, które obsłużymy $d$ rzutami. Pierwszy rzut z piętra $x$:
+      <ul>
+        <li>tłucze się: jedno jajko i $d-1$ rzutów na piętra $1, \dots, x-1$, więc $x - 1 \le d - 1$</li>
+        <li>nie tłucze się: nad piętrem $x$ zostaje najwyżej $f(d-1)$ pięter</li>
+      </ul>
+    </li>
+    <li class="fragment">$$f(d) = d + f(d-1), \quad f(0) = 0 \qquad\Longrightarrow\qquad f(d) = 1 + 2 + \dots + d = \frac{d(d+1)}{2}$$</li>
+  </ol>
+  <div class="takeaway fragment">$f(13) = 91 < 100 \le 105 = f(14)$: przy 13 rzutach któreś piętro zostanie nierozpoznane, 14 wystarcza.</div>
 </section>
 
 <section>
@@ -739,6 +1305,7 @@
   <table style="font-size:0.8em">
     <tr><th>łamigłówka</th><th>pomysł</th></tr>
     <tr><td>zgadnij liczbę</td><td>pytaj o środek: $\lceil \log_2(n+1) \rceil$ pytań</td></tr>
+    <tr><td>dwa jajka</td><td>równoważymy najgorszy przypadek: skoki 14, 13, 12, …; $d$ rzutów to $\frac{d(d+1)}{2}$ pięter</td></tr>
     <tr><td>fałszywa moneta</td><td>ważenie ma 3 wyniki: dziel na 3, $k$ ważeń to $3^k$ przypadków</td></tr>
     <tr><td>szachownica i domino</td><td>niezmiennik: kolorowanie; „da się” pokazujemy konkretnym ułożeniem</td></tr>
     <tr><td>gra w zapałki</td><td>pozycje wygrywające liczone od końca; niezmiennik „podzielne przez 4”</td></tr>
@@ -751,6 +1318,7 @@
   <h2>Zadania</h2>
   <ol class="small" style="font-size:0.8em">
     <li>Zgadujemy liczbę od 1 do 1000. Ile pytań wystarczy? A od 1 do 1 000 000?</li>
+    <li>Dwa jajka, 200 pięter. Ile rzutów wystarczy? Z jakich pięter rzucasz pierwszym jajkiem?</li>
     <li>27 monet, jedna lżejsza. Ile ważeń wystarczy? Ile przy 10 monetach? Opisz strategię.</li>
     <li>Z szachownicy wycinamy pola a1 i b2. Czy resztę da się pokryć dominem? A gdy wytniemy a1 i c2? Uzasadnij albo pokaż ułożenie.</li>
     <li>30 zapałek, bierzemy od 1 do 4. Kto wygrywa przy najlepszej grze obu stron: zaczynająca czy druga osoba? Jak powinna grać?</li>
