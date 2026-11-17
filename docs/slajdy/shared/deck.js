@@ -9,6 +9,8 @@ const widgetModules = {
   guess: () => import('./widgets/guess.js'),
   hanoi: () => import('./widgets/hanoi.js'),
   nim: () => import('./widgets/nim.js'),
+  sort: () => import('./widgets/sort.js'),
+  growth: () => import('./widgets/growth.js'),
 };
 
 function renderMath(root) {
